@@ -1,6 +1,18 @@
 import React, { Component } from 'react'
+import { BrowserRouter,HashRouter, Route, Routes } from 'react-router-dom'
+import Login from './pages/login/login'
+import Admin from './pages/admin/admin'
 export default class App extends Component {
-    render(h) {
-        return <div>app</div>
+
+    render() {
+        return (
+            <BrowserRouter>
+                <Routes>
+                    <Route path='login' element={<Login />}></Route>
+                    <Route path='admin' element={<Admin />}></Route>
+                </Routes>
+            </BrowserRouter>
+        )
+
     }
 }
