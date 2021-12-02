@@ -1,18 +1,24 @@
-import React, { Component } from 'react'
-import { BrowserRouter,HashRouter, Route, Routes } from 'react-router-dom'
-import Login from './pages/login/login'
-import Admin from './pages/admin/admin'
-export default class App extends Component {
+/* 
+    应用的根组件(一个react项目至少有一个根组件，一般叫App.js(x))
+*/
+import React, { Component } from 'react';
+import { BrowserRouter, Route, Switch, Redirect} from 'react-router-dom';
 
+import Login from './pages/login/Login'
+import Admin from './pages/admin/admin';
+
+class App extends Component {
     render() {
         return (
             <BrowserRouter>
-                <Routes>
-                    <Route path='login' element={<Login />}></Route>
-                    <Route path='admin' element={<Admin />}></Route>
-                </Routes>
+                <Switch>
+                    <Route path='/login' component={Login}></Route>
+                    <Route path='/' component={Admin}></Route>
+                    <Redirect to='/login' />
+                </Switch>
             </BrowserRouter>
         )
-
     }
 }
+
+export default App;
